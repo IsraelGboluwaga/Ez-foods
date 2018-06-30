@@ -1,0 +1,19 @@
+{
+  "name": "forLoopUSSD",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Israel Arunah arunahisraelg2010@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "africastalking": "^0.3.2",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "mongoose": "*",
+    "morgan": "~1.9.0",
+    "nodemon": "^1.17.5",
+    "validator": "*"
+  }
+}
