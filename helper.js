@@ -90,8 +90,8 @@ const getFullFoodNameFromCode = (code) => {
     return food + ' and ' + meat + ' with ' + extra;
 };
 
-const getBill = () => {
-
+const getBill = (ordered_food) => {
+    return '#800';
 };
 
 const proceedInteraction = (res, response) => {
@@ -102,11 +102,28 @@ const endInteraction = (res, response) => {
     res.send('END ' + response);
 };
 
+const generateTransactionReference = () => {
+    const letters = 'abcdefghojklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const numbers = '0123456789';
+    const ref = [];
+    let letter_random_no, num_random_number;
+    for (let i = 0; i < 10; i++) {
+        letter_random_no = (Math.random() * 40).toFixed();
+        num_random_number = (Math.random() * 10).toFixed();
+        if (i < 7) {
+            ref.push(letters[letter_random_no]);
+        } else {
+            ref.push(numbers[num_random_number]);
+        }
+    }
+    return ref.join('');
+};
 
 module.exports = {
     getFoodName,
     getFullFoodNameFromCode,
     getBill,
     proceedInteraction,
-    endInteraction
+    endInteraction,
+    generateTransactionReference
 };

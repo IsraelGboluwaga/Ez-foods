@@ -1,14 +1,19 @@
 const foodRequestHandler = require('./foods.ctrl');
 const {userHandler, profileHandler} = require('./user.ctrl');
 const aboutHandler = require('./about.ctrl');
+const paymentHandler = require('./payments.ctrl');
 const {proceedInteraction, endInteraction} = require('../helper');
 
 const requestHandler = (req, res) => {
     let response;
     let {sessionId, serviceCode, phoneNumber, text} = req.body;
     text = text.toString();
+    const index = text.indexOf('00'), backToTop = index !== -1;
 
-    if (text === '') {
+    if (backToTop)
+        text = text.slice(index+1);
+
+    if (text === '' || text.slice(-2) === '00') {
         response = `Welcome to Ez Foods!
         1. Order food
         2. Create Account
@@ -19,15 +24,15 @@ const requestHandler = (req, res) => {
         proceedInteraction(res, response);
     }
     else if (text[0] === '1' && text <= 9) {
-        //Done 90% - getBill() left
         foodRequestHandler(res, text);
     }
-    else if (text[0] === '1' && text > 9) {
-        //Payments. After saving details, use OTP to confirm it's you.
+    else if (text[0] === '1' && text[10] === '1' && text.length === 11) {
+        text = text.slice(10);
+        //Payments
+        paymentHandler(req, text, phoneNumber);
         // Address is collected after payments
     }
     else if (text[0] === '2') {
-        //OTP to confirm registration
         userHandler(res, text, phoneNumber);
     }
     else if (text[0] === '3') {
@@ -43,4 +48,4 @@ const requestHandler = (req, res) => {
     }
 };
 
-module.exports = requestHandler;
+module.exports = {requestHandler};
