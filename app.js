@@ -23,12 +23,12 @@ app.use(function (err, req, res, next) {
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-    // render the error page
+    // render the error message
     res.status(err.status || 500);
-    res.render('error');
+    res.json('error');
 });
 
-const port = process.env.PORT || 3500;
+const port = process.env.PORT || 8500;
 
 app.listen(port, () => {
     console.log('App listening on port', port);
