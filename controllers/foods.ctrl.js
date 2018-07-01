@@ -1,6 +1,6 @@
 const {proceedInteraction, getFoodName, getFullFoodNameFromCode, getBill} = require('../helper');
 
-const               foodRequestHandler = (res, text) => {
+const foodRequestHandler = (res, text) => {
     let response;
 
     if (text === '1') {
