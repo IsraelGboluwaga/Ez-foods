@@ -2,8 +2,20 @@ const createError = require('http-errors');
 const express = require('express');
 const logger = require('morgan');
 
-const app = express();
 require('dotenv').config();
+const app = express();
+
+//Set db connection
+const mongoose_options = {useMongoClient: true};
+if (!process.env.NODE_ENV === 'production' && !app.get('env') === 'production') {
+    mongoose.connect(process.env.DB_URL, mongoose_options);
+} else {
+    mongoose.connect(process.env.DB_URL_LIVE, mongoose_options);
+}
+mongoose.Promise = global.Promise;
+const db_connection = mongoose.connection;
+db_connection.on('error', console.error.bind(console, 'MongoDB connection error: '));
+
 
 app.use(logger('dev'));
 app.use(express.json());
