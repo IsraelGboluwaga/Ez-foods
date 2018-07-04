@@ -7,11 +7,12 @@ const {proceedInteraction, endInteraction} = require('../helper');
 const requestHandler = (req, res) => {
     let response;
     let {sessionId, serviceCode, phoneNumber, text} = req.body;
+    console.log('Text is', text);
     text = text.toString();
     const index = text.indexOf('00'), backToTop = index !== -1;
 
     if (backToTop)
-        text = text.slice(index+1);
+        text = text.slice(index + 1);
 
     if (text === '' || text.slice(-2) === '00') {
         response = `Welcome to Ez Foods!

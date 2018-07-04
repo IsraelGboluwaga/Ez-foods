@@ -1,16 +1,16 @@
 const createError = require('http-errors');
 const express = require('express');
 const logger = require('morgan');
+const mongoose = require('mongoose');
 
 require('dotenv').config();
 const app = express();
 
 //Set db connection
-const mongoose_options = {useMongoClient: true};
 if (!process.env.NODE_ENV === 'production' && !app.get('env') === 'production') {
-    mongoose.connect(process.env.DB_URL, mongoose_options);
+    mongoose.connect(process.env.DB_URL);
 } else {
-    mongoose.connect(process.env.DB_URL_LIVE, mongoose_options);
+    mongoose.connect(process.env.DB_URL_LIVE);
 }
 mongoose.Promise = global.Promise;
 const db_connection = mongoose.connection;
