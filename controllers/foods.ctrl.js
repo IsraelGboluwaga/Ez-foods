@@ -29,11 +29,13 @@ const foodRequestHandler = (res, text) => {
         response = `Would you also like any of these:
         1. Plantain
         2. Egg
-        3. Plantain and egg`;
+        3. Plantain and egg
+        4. None`;
 
         proceedInteraction(res, response);
     }
     else if (length === 7) {
+        console.log('In get full food name =>', getFullFoodNameFromCode(text));
         response = `You have ordered ${getFullFoodNameFromCode(text)}. Press 1 to confirm.`;
 
         proceedInteraction(res, response);

@@ -30,12 +30,13 @@ const getFoodName = (code) => {
 const getFullFoodNameFromCode = (code) => {
     code = code.toString();
     const code_numbers = [];
-    let food, meat, extra;
+    let food, meat, extra, output;
     for (let i = 4; i <= code.length; i += 2) {
         code_numbers.push(code[i]);
     }
+    console.log('Code numbers =>', code_numbers);
 
-    this.getFoodName(code.slice(0, 3));
+    food = this.getFoodName(code.slice(0, 3));
     // switch (code_numbers[1]) {
     //     case 1:
     //         food = 'Fried rice';
@@ -87,7 +88,9 @@ const getFullFoodNameFromCode = (code) => {
             break;
     }
 
-    return food + ' and ' + meat + ' with ' + extra;
+    output = extra ? food + ' and ' + meat + ' with ' + extra
+        : food + ' and ' + meat;
+    return output;
 };
 
 const getBill = (ordered_food) => {
