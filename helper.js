@@ -28,37 +28,39 @@ const getFoodName = (code) => {
 };
 
 const getFullFoodNameFromCode = (code) => {
+    code = code.toString();
     const code_numbers = [];
     let food, meat, extra;
-    for (let i = 0; i < code.length; i += 2) {
+    for (let i = 4; i <= code.length; i += 2) {
         code_numbers.push(code[i]);
     }
 
-    switch (code_numbers[1]) {
-        case 1:
-            food = 'Fried rice';
-            break;
-        case 2:
-            food = 'Jollof Rice';
-            break;
-        case 3:
-            food = 'Fried and Jollof rice';
-            break;
-        case 4:
-            food = 'White rice';
-            break;
-        case 5:
-            food = 'White rice and beans';
-            break;
-        case 6:
-            food = 'Spaghetti';
-            break;
-        case 7:
-            food = 'Bread and beans (BB)';
-            break;
-    }
+    this.getFoodName(code.slice(0, 3));
+    // switch (code_numbers[1]) {
+    //     case 1:
+    //         food = 'Fried rice';
+    //         break;
+    //     case 2:
+    //         food = 'Jollof Rice';
+    //         break;
+    //     case 3:
+    //         food = 'Fried and Jollof rice';
+    //         break;
+    //     case 4:
+    //         food = 'White rice';
+    //         break;
+    //     case 5:
+    //         food = 'White rice and beans';
+    //         break;
+    //     case 6:
+    //         food = 'Spaghetti';
+    //         break;
+    //     case 7:
+    //         food = 'Bread and beans (BB)';
+    //         break;
+    // }
 
-    switch (code_numbers[2]) {
+    switch (code_numbers[0]) {
         case 1:
             meat = 'beef';
             break;
@@ -73,7 +75,7 @@ const getFullFoodNameFromCode = (code) => {
             break;
     }
 
-    switch (code_numbers[3]) {
+    switch (code_numbers[1]) {
         case 1:
             extra = 'plantain';
             break;
@@ -89,7 +91,7 @@ const getFullFoodNameFromCode = (code) => {
 };
 
 const getBill = (ordered_food) => {
-    return '#800';
+    return '#1100';
 };
 
 const proceedInteraction = (res, response) => {
