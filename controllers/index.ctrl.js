@@ -25,7 +25,7 @@ const requestHandler = (req, res) => {
 
         proceedInteraction(res, response);
     }
-    else if (text[0] === '1' && text < 10) {
+    else if (text[0] === '1' && text.length < 10) {
         console.log('Text in food:', text);
         foodRequestHandler(res, text);
     }
