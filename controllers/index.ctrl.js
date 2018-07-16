@@ -23,10 +23,10 @@ const requestHandler = (req, res) => {
 
         proceedInteraction(res, response);
     }
-    else if (text[0] === '1' && text <= 9) {
+    else if (text[0] === '1' && text.length < 10) {
         foodRequestHandler(res, text);
     }
-    else if (text[0] === '1' && text[10] === '1' && text.length === 11) {
+    else if (text[0] === '1' && text[10] === '1' && text.length >= 10) {
         text = text.slice(10);
         //Payments
         paymentHandler(req, text, phoneNumber);
