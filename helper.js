@@ -1,4 +1,6 @@
 const getFoodName = (code) => {
+    console.log('In getFoodName: ', code);
+
     let foodName;
     if (code === '1*1') {
         foodName = 'Fried rice';
@@ -37,6 +39,7 @@ const getFullFoodNameFromCode = (code) => {
     console.log('Code numbers =>', code_numbers);
 
     food = this.getFoodName(code.slice(0, 3));
+    console.log('Here after get food name => ', food);
     // switch (code_numbers[1]) {
     //     case 1:
     //         food = 'Fried rice';
