@@ -9,6 +9,7 @@ const requestHandler = (req, res) => {
     let {sessionId, serviceCode, phoneNumber, text} = req.body;
     text = text.toString();
     console.log('Initial text', text);
+    console.log('Initial text length', text.length);
     const index = text.indexOf('00'), backToTop = index !== -1;
 
     if (backToTop)
