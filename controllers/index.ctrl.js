@@ -8,6 +8,7 @@ const requestHandler = (req, res) => {
     let response;
     let {sessionId, serviceCode, phoneNumber, text} = req.body;
     text = text.toString();
+    console.log('Initial text', text);
     const index = text.indexOf('00'), backToTop = index !== -1;
 
     if (backToTop)
