@@ -30,10 +30,8 @@ const getFoodName = (code) => {
 const getFullFoodNameFromCode = (code) => {
     const code_numbers = [];
     let food, meat, extra;
-    for (let i in code) {
-        if (i % 2 === 0) {
-            code_numbers.push(code[i]);
-        }
+    for (let i = 0; i < code.length; i += 2) {
+        code_numbers.push(code[i]);
     }
 
     switch (code_numbers[1]) {

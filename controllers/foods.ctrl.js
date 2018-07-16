@@ -1,7 +1,8 @@
-const {proceedInteraction, getFoodName, getFullFoodNameFromCode, getBill} = require('../helper');
+const {proceedInteraction, endInteraction, getFoodName, getFullFoodNameFromCode, getBill} = require('../helper');
 
 const foodRequestHandler = (res, text) => {
     let response;
+    let length = text.length;
 
     if (text === '1') {
         response = `Here are the available delicacies:
@@ -15,7 +16,7 @@ const foodRequestHandler = (res, text) => {
 
         proceedInteraction(res, response);
     }
-    else if (text.length === 3) {
+    else if (length === 3) {
         response = `Which would you prefer to have with your ${getFoodName(text)}:
         1. Beef
         2. Turkey
@@ -24,7 +25,7 @@ const foodRequestHandler = (res, text) => {
 
         proceedInteraction(res, response);
     }
-    else if (text.length === 5) {
+    else if (length === 5) {
         response = `Would you also like any of these:
         1. Plantain
         2. Egg
@@ -32,18 +33,21 @@ const foodRequestHandler = (res, text) => {
 
         proceedInteraction(res, response);
     }
-    else if (text.length === 7) {
+    else if (length === 7) {
         response = `You have ordered ${getFullFoodNameFromCode(text)}. Press 1 to confirm.`;
 
         proceedInteraction(res, response);
     }
-    else if (text.length === 9) {
+    else if (length === 9) {
         let text_for_food = text.slice(text(0, 7)),
             ordered_food = getFullFoodNameFromCode(text_for_food);
 
         response = `Your bill is ${getBill(ordered_food)} and delivery is #200. Press 1 to make payments.`;
 
         proceedInteraction(res, response);
+    }
+    else if (length ===2 || length === 4 || length ===6 || length === 8) {
+        endInteraction(res, 'Invalid entry');
     }
 };
 

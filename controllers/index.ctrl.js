@@ -29,7 +29,7 @@ const requestHandler = (req, res) => {
         console.log('Text in food:', text);
         foodRequestHandler(res, text);
     }
-    else if (text[0] === '1' && text[10] === '1' && text.length > 10) {
+    else if (text[0] === '1' && text[10] === '1' && text.length >= 10) {
         console.log('Text in food2:', text);
         text = text.slice(10);
         //Payments
