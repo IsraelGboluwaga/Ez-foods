@@ -35,7 +35,6 @@ const foodRequestHandler = (res, text) => {
         proceedInteraction(res, response);
     }
     else if (length === 7) {
-        console.log('In get full food name =>', getFullFoodNameFromCode(text));
         response = `You have ordered ${getFullFoodNameFromCode(text)}. Press 1 to confirm.`;
 
         proceedInteraction(res, response);

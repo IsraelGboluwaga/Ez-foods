@@ -1,5 +1,4 @@
 const getFoodName = (code) => {
-    console.log('In getFoodName: ', code);
 
     let foodName;
     if (code === '1*1') {
@@ -36,33 +35,8 @@ const getFullFoodNameFromCode = (code) => {
     for (let i = 4; i <= code.length; i += 2) {
         code_numbers.push(code[i]);
     }
-    console.log('Code numbers =>', code_numbers);
 
     food = this.getFoodName(code.slice(0, 3));
-    console.log('Here after get food name => ', food);
-    // switch (code_numbers[1]) {
-    //     case 1:
-    //         food = 'Fried rice';
-    //         break;
-    //     case 2:
-    //         food = 'Jollof Rice';
-    //         break;
-    //     case 3:
-    //         food = 'Fried and Jollof rice';
-    //         break;
-    //     case 4:
-    //         food = 'White rice';
-    //         break;
-    //     case 5:
-    //         food = 'White rice and beans';
-    //         break;
-    //     case 6:
-    //         food = 'Spaghetti';
-    //         break;
-    //     case 7:
-    //         food = 'Bread and beans (BB)';
-    //         break;
-    // }
 
     switch (code_numbers[0]) {
         case 1:
