@@ -7,7 +7,6 @@
   "author": "Israel Arunah arunahisraelg2010@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "africastalking": "^0.3.2",
     "debug": "~2.6.9",
     "dotenv": "*",
     "express": "~4.16.0",
