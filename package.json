@@ -14,7 +14,7 @@
     "http-errors": "~1.7.3",
     "mongoose": "*",
     "morgan": "~1.9.0",
-    "nodemon": "^1.17.5",
+    "nodemon": "^2.0.2",
     "ravepay": "*",
     "validator": "*"
   }
