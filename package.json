@@ -8,7 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "africastalking": "^0.4.4",
-    "debug": "~2.6.9",
+    "debug": "~4.1.1",
     "dotenv": "*",
     "express": "~4.16.0",
     "http-errors": "~1.7.3",
